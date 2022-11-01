@@ -5,25 +5,33 @@
         $targetFile = $targetDir . "/" . basename($_FILES[$inputName]['name']);
         $errors = array();
         $types = "";
+        
+        
         if(is_array($allowTypes)){
             foreach($allowTypes as $key => $type){
                 $types = $type . ",";
+
             }
         }
         $types = trim($types, ",");
+        
         if(!isset($inputName)){
             $errors[]= "Không có dữ liệu file";
             $uploadStatus = false;
         }
-        if($inputName['errors'] !== 0){
+        if($_FILES[$inputName]['error'] != 0){
             $errors[] = "Dữ liệu upload bị lỗi";
             $uploadStatus = false;
+            var_dump( $errors);
+        die(1);
         }
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
         if(!in_array($imageFileType, $allowTypes)){
             $errors[]= "Chỉ được upload các định dạng " . $types;
             $uploadStatus = false;
+            
         }
+        
         if($_FILES[$inputName]['size'] > $maxSize*1024*1024){
             $errors[] = "Kích thước file không được lớn hơn $maxSize (MB)";
             $uploadStatus = false;
@@ -45,6 +53,7 @@
     }
     $upload = uploadFile('avatar', 'file', array('jpg', 'jpeg', 'png', 'gif'), 1, true);
     $_SESSION['uploadStatus'] = $upload;
+    header('location: ex1.php');
     // echo "<pre>";
     //     print_r($_FILES);
     // echo "</pre>";

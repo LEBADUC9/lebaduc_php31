@@ -12,6 +12,24 @@
 <div class="container">
         <form action="upload_file.php" enctype="multipart/form-data" method="POST" role="form">
           <br>
+          <?php if(isset($_SESSION['uploadStatus']) && $_SESSION['uploadStatus'] == false){ ?>
+            <div class="alert alert-danger" role="alert">
+                <?php
+                    foreach($_SESSION['uploadStatus'][1] as $error){
+                        echo "$error";
+                    }
+                    unset($_SESSION['uploadStatus']);
+                ?>
+            </div>
+            <?php } ?>
+            <?php if(isset($_SESSION['uploadStatus']) && $_SESSION['uploadStatus'] == true){ ?>
+                <div class="alert alert-danger" role="alert">
+                    Đường dẫn sau khi upload: <?= $_SESSION['uploadStatus'][1]; ?>
+                </div>
+            <?php
+                unset($_SESSION['uploadStatus']);
+                }
+            ?>
             <legend>Upload Document</legend>
             <div class="form-group">
                 <label for="">Tên tài liệu</label>

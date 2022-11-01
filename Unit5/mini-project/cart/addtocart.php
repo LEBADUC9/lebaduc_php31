@@ -10,7 +10,7 @@
         $_GET['id'];
     echo "</pre>";
     $product = $products[$key];
-   
+    $product['product_amount'] = 1;
 
     $_SESSION['cart'][] = $product;
     header('location: cart.php');
