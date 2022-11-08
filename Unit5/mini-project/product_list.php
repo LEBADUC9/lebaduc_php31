@@ -3,8 +3,6 @@
     $products = $_SESSION['products'];
     // echo "<pre>";
     // print_r($products);
-  
-    
 ?>
 
 <!DOCTYPE html>

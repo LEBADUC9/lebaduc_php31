@@ -14,4 +14,5 @@
 
     $_SESSION['cart'][] = $product;
     header('location: cart.php');
+    
 ?>

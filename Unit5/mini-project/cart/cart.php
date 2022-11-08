@@ -40,7 +40,12 @@
         <tr>
           <td><?= $product['product_code'] ?></td>
           <td><?= $product['product_name'] ?></td>
-          <td><a href="minus.php?id=<?=$key?>" class="btn-amount">-</a><?= $product['product_amount'] ?><a href="plus.php?id=<?=$key?>" class="btn-amount">+</a></td>
+          <td>
+            <a href="minus.php?id=<?=$key?>" class="btn-amount">-</a>
+            
+            <?= $productInCart[$key]['product_amount'] ?>
+            <a href="plus.php?id=<?=$key?>" class="btn-amount">+</a>
+          </td>
           <td><?= number_format($product['product_price']) ?></td>
           <td><img src="<?= $product['product_images'] ?>" style="width: 100px" alt=""></td>
           <td><?=number_format($product['product_amount']*$product['product_price'])?></td>

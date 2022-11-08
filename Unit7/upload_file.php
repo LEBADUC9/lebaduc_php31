@@ -22,8 +22,7 @@
         if($_FILES[$inputName]['error'] != 0){
             $errors[] = "Dữ liệu upload bị lỗi";
             $uploadStatus = false;
-            var_dump( $errors);
-        die(1);
+            
         }
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
         if(!in_array($imageFileType, $allowTypes)){
