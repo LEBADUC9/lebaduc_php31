@@ -1,24 +1,25 @@
 <?php
 
 require_once 'Connection.php';
-
-class Category{
-    public $conn;
-    function __construct()
-    {
-        $connection = new Connection();
-        $this->conn = $connection->conn;
-    }
-    public function getAll()
-    {
-        $query = "SELECT * FROM categories";
-        $result = $this->conn->query($query);
-        $categories = array();
-        while($row = $result->fetch_assoc()){
-            $categories[] = $row;
-        }
-        return $categories;
-    }
+require_once 'Model.php';
+class Category extends Model{
+    // public $conn;
+    // function __construct()
+    // {
+    //     $connection = new Connection();
+    //     $this->conn = $connection->conn;
+    // }
+    // public function getAll()
+    // {
+    //     $query = "SELECT * FROM categories";
+    //     $result = $this->conn->query($query);
+    //     $categories = array();
+    //     while($row = $result->fetch_assoc()){
+    //         $categories[] = $row;
+    //     }
+    //     return $categories;
+    // }
+    public $table = "categories";
     public function add($data)
     {
        
