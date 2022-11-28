@@ -19,5 +19,45 @@
         //     return $users;
         // }
         public $table = "users";
+        public function checkLogin($email, $password){
+            // var_dump($email);
+            // die();
+            $users = $this->where(["email" => $email, "password" => $password]);
+            // echo "<>"
+            //  var_dump($users);
+            // die();
+            // if(!isset($users[0])){
+           
+            //     return false;
+            // }
+            // $users = $users[0];
+            
+            if(count($users) > 0){
+                $_SESSION['auth'] = [
+                    'id' => $users['id'],
+                    'name' => $users['name']
+                ];
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
     }
+    // class User extends Model{
+    //     public $table = "users";
+    //     public function checkLogin($email, $password){
+    //         $users->this->where(["email" => $email, "password" => $password]);
+    //         $users = $users[0];
+    //         if(count($users) > 0){
+    //             $_SESSION['auth'] = [
+    //                 'id' => $users['id'],
+    //                 'name' => $users['name']
+    //             ];
+    //             return true;
+    //         }else{
+    //             return false;
+    //         }
+    //     }
+    // }
 ?>
