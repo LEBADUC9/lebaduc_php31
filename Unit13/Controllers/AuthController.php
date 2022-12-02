@@ -10,11 +10,15 @@
             //     die();
             $user = new User();
             if($user->checkLogin($_POST['email'], $_POST['password'])){
-                $this->redirect("index.php?mod=categories&act=index");
+                $this->redirect("index.php?mod=category&act=index");
                 
             } else{
                 $this->redirect("index.php?mod=auth&act=login");
             }
+        }
+        public function logout(){
+            unset($_SESSION['auth']);
+            $this->redirect("index.php?mod=auth&act=login");
         }
     }
 ?>

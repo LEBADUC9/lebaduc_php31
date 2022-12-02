@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if(!isset($_GET['mod'])){
         echo "Tham số không tồn tại";
         exit();

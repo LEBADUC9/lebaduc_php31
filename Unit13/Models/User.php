@@ -34,13 +34,19 @@
             
             if(count($users) > 0){
                 $_SESSION['auth'] = [
-                    'id' => $users['id'],
-                    'name' => $users['name']
+                    'id' => $users[0]['id'],
+                    'name' => $users[0]['name']
                 ];
+                // var_dump($users);
+                // echo "<pre>";
+                //     print_r($_SESSION['auth']);
+                // echo "</pre>";
+                // die();
                 return true;
             }else{
                 return false;
             }
+            
         }
         
     }

@@ -1,7 +1,7 @@
 <?php
     require_once "./Models/Category.php";
-    require_once "./Controllers/BaseController.php";
-    class CategoriesController extends BaseController {
+    require_once "./Controllers/AdminController.php";
+    class CategoryController extends AdminController {
         public function index(){
             $model = new Category();
             $categories = $model->getAll();
@@ -71,9 +71,9 @@
                 'category' => $category
             ]);
         }
-        public function update(){
+        public function update($data){
             $model = new Category();
-            $status = $model->update();
+            $status = $model->update($data);
             // header('location: index.php?mod=categories&act=index');
             $this->redirect("index.php?mod=categories&act=index");
         }

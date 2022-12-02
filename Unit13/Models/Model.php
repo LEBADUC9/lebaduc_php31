@@ -18,24 +18,32 @@
             return $items;
         }
         protected function where($where = []){
-            $query = "SELECT * FROM $this->table WHERE ";
+            $query = " SELECT * FROM $this->table WHERE ";
             $string = '';
             $i = 0;
             foreach($where as $column => $value){
+                
                 $i++;
                 $string .= "$column=" . "'" . $value . "'";
+                
+                // $string .= "{$column} {$value} ";
                 if($i !=count($where)){
                     $string .= " AND ";
                 }
             }
-            $query .= $value;
-            // var_dump($column);
+            // var_dump($string);
+            //     die();
+            $query .= $string;
+            // var_dump($query);
             // die();
+            
             $result = $this->conn->query($query);
+            
             $data = array();
             while($row = $result->fetch_assoc()){
-                $data = $row;
+                $data[] = $row;
             }
+            
             return $data;
         }
     }

@@ -43,7 +43,7 @@ class Category extends Model{
         return $category;
        
     }
-    public function update(){
+    public function update($data){
         if(!empty($_POST)){
             $data = $_POST;
         };
