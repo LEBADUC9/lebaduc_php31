@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <h3 class="text-center">--- CATEGORIES ---</h3>
-        <a href="index.php?mod=categories&act=create" class="btn btn-primary">Add New Category</a>
+        <a href="index.php?mod=category&act=create" class="btn btn-primary">Add New Category</a>
         <table class="table">
             <thead>
                 <th>ID</th>
@@ -35,9 +35,9 @@
                 </td>
                 <td><?= $cate['description'] ?></td>
                 <td>
-                    <a href="index.php?mod=categories&act=show&id=<?=$cate['id']?>" class="btn btn-primary">Detail</a>
-                    <a href="index.php?mod=categories&act=edit&id=<?=$cate['id']?>" class="btn btn-success">Edit</a>
-                    <a href="index.php?mod=categories&act=delete&id=<?=$cate['id']?>" class="btn btn-danger">Delete</a>
+                    <a href="index.php?mod=category&act=show&id=<?=$cate['id']?>" class="btn btn-primary">Detail</a>
+                    <a href="index.php?mod=category&act=edit&id=<?=$cate['id']?>" class="btn btn-success">Edit</a>
+                    <a href="index.php?mod=category&act=delete&id=<?=$cate['id']?>" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             <?php } ?>

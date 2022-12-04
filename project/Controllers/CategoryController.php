@@ -5,11 +5,13 @@
         public function index(){
             $model = new Category();
             $categories = $model->getAll();
+            
         
             // require_once "./Views/categories/list.php";
             $this->view("/categories/list.php",[
                 'categories' => $categories
             ]);
+            
         }
         public function create(){
             // require_once "./Views/categories/create.php";
@@ -32,10 +34,10 @@
             // die();
             if($status == true){
                 // header('location: index.php?mod=categories&act=index');
-                $this->redirect("index.php?mod=category&act=index");
+                $this->redirect("index.php?mod=categories&act=index");
             } else{
-                // header('location: index.php?mod=category&act=create');
-                $this->redirect("index.php?mod=category&act=create");
+                // header('location: index.php?mod=categories&act=create');
+                $this->redirect("index.php?mod=categories&act=create");
             }
         }
         public function delete(){
@@ -46,8 +48,8 @@
             // die();
             $status = $model->delete($id);
             if($status == true){
-                // header('location: index.php?mod=category&act=index');
-                $this->redirect("index.php?mod=category&act=index");
+                // header('location: index.php?mod=categories&act=index');
+                $this->redirect("index.php?mod=categories&act=index");
             }
         }
         public function show(){
@@ -55,8 +57,8 @@
             $id = isset($_GET['id'])?$_GET['id']:0;
             $category = $model->show($id);
             
-            // require_once "./Views/category/detail.php";
-            $this->view("/category/detail.php",[
+            // require_once "./Views/categories/detail.php";
+            $this->view("/categories/detail.php",[
                 'category' => $category
             ]);
             
@@ -66,16 +68,16 @@
             $id = isset($_GET['id'])?$_GET['id']:0;
             $category = $model->show($id);
             
-            // require_once "./Views/category/edit.php";
-            $this->view("/category/edit.php",[
+            // require_once "./Views/categories/edit.php";
+            $this->view("/categories/edit.php",[
                 'category' => $category
             ]);
         }
         public function update($data){
             $model = new Category();
             $status = $model->update($data);
-            // header('location: index.php?mod=category&act=index');
-            $this->redirect("index.php?mod=category&act=index");
+            // header('location: index.php?mod=categories&act=index');
+            $this->redirect("index.php?mod=categories&act=index");
         }
     }
     

@@ -39,7 +39,7 @@
                 ];
                 // var_dump($users);
                 // echo "<pre>";
-                //     print_r($users);
+                //     print_r($_SESSION['auth']);
                 // echo "</pre>";
                 // die();
                 return true;
