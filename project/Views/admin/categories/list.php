@@ -22,49 +22,50 @@
                 ?>
             </div>
             <div id="layoutSidenav_content">
+                
+                <div id="layoutSidenav_content">
                 <main>
-                <div class="container">
-                    <h3 class="text-center">--- CATEGORIES ---</h3>
-                    <a href="index.php?mod=categories&act=create" class="btn btn-primary">Add New Category</a>
-                    <table class="table">
-                        <thead>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Thumbnail</th>
-                            <th>Description</th>
-                            <th>Action</th>
-                        </thead>
-                        <?php foreach($categories as $cate){ ?>
-                        <tr>
-                            
-                            <td><?= $cate['id'] ?></td>
-                            <td><?= $cate['name'] ?></td>
-                            <td>
-                                <img src="<?=$cate['thumbnail']?>" width="100px" height="100px" style="object-fit: cover;">
-                            </td>
-                            <td><?= $cate['description'] ?></td>
-                            <td>
-                                <a href="index.php?mod=categories&act=show&id=<?=$cate['id']?>" class="btn btn-primary">Detail</a>
-                                <a href="index.php?mod=categories&act=edit&id=<?=$cate['id']?>" class="btn btn-success">Edit</a>
-                                <a href="index.php?mod=categories&act=delete&id=<?=$cate['id']?>" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                        <?php } ?>
-                    </table>
-                </div>
-                </main>
-                <!-- <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                        <h1 class="mt-4">Danh mục</h1>
+                        
+                        <a href="index.php?mod=category&act=create" class="btn btn-primary">Thêm mới danh mục</a>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Danh mục
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Thumbnail</th>
+                                        <th>Slug</th>
+                                        <th>Description</th>
+                                        <th>Action</th>
+                                    </thead>
+                                    <?php foreach($categories as $cate){ ?>
+                                    <tr>
+                                        
+                                        <td><?= $cate['id'] ?></td>
+                                        <td><?= $cate['category_name'] ?></td>
+                                        <td>
+                                            <img src="<?=$cate['category_thumbnail']?>" width="100px" height="100px" style="object-fit: cover;">
+                                        </td>
+                                        <td><?= $cate['category_slug'] ?></td>
+                                        <td><?= $cate['category_description'] ?></td>
+                                        <td>
+                                            <a href="index.php?mod=category&act=show&id=<?=$cate['id']?>" class="btn btn-primary">Detail</a>
+                                            <a href="index.php?mod=category&act=edit&id=<?=$cate['id']?>" class="btn btn-success">Edit</a>
+                                            <a href="index.php?mod=category&act=delete&id=<?=$cate['id']?>" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
+                                </table>
                             </div>
                         </div>
                     </div>
-                </footer> -->
+                </main>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

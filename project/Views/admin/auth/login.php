@@ -42,11 +42,14 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <?php
-                                        if(isset($_COOKIE['checkLogin'])){
-                                            echo $_COOKIE['checkLogin'];
-                                        }
-                                    ?>
+                                    <div class="arlert">
+                                        <?php
+                                            if(isset($_COOKIE['checkLogin'])){
+                                                echo $_COOKIE['checkLogin'];
+                                            }
+                                        ?>
+                                    </div>
+                                    
                                     <div class="card-footer text-center py-3">
                                         <div class="small"><a href="register.html">Đăng ký!</a></div>
                                     </div>

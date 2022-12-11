@@ -10,11 +10,11 @@
             //     die();
             $user = new User();
             if($user->checkLogin($_POST['email'], $_POST['password'])){
-                $this->redirect("index.php?mod=category&act=index");
+                $this->redirect("index.php?mod=index&act=index");
                 
             } else{
                 $this->redirect("index.php?mod=auth&act=login");
-                setcookie('checkLogin', 'Đăng nhập không thành công', time() + 10 );
+                setcookie('checkLogin', 'Đăng nhập không thành công!', time() + 10 );
                 // var_dump($_COOKIE['checkLogin']);
                 // die();
             }

@@ -23,8 +23,10 @@ class Category extends Model{
     public function add($data)
     {
        
-        $query = "INSERT INTO categories(name, description) VALUES('$data[name]', '$data[description]') ";
+        $query = "INSERT INTO categories(category_name, category_description) VALUES('$data[name]', '$data[description]') ";
         $status = $this->conn->query($query);
+        // var_dump($status);
+        //     die();
         return $status;
     }
     public function delete($id){
@@ -44,13 +46,18 @@ class Category extends Model{
        
     }
     public function update($data){
-        if(!empty($_POST)){
-            $data = $_POST;
-        };
-        // var_dump($data);
-        // die();
-        $query = "UPDATE categories SET name = '{$data['name']}', description =  '{$data['description']}' WHERE id = $data[id]";
+        
+        $query = "UPDATE categories SET category_name = '{$data['name']}', category_slug =  '{$data['slug']}', category_description =  '{$data['description']}' WHERE id = $data[id]";
         $status = $this->conn->query($query);
+    }
+    public function getOutstandingCate(){
+        $query = "SELECT * FROM categories WHERE id = 1 OR id = 4 OR id = 6";
+        $result = $this->conn->query($query);
+        $outstandingCate = array();
+        while($row = $result->fetch_assoc()){
+            $outstandingCate[] = $row;
+        }
+        return $outstandingCate;
     }
 }
 

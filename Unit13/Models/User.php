@@ -38,10 +38,10 @@
                     'name' => $users[0]['name']
                 ];
                 // var_dump($users);
-                // echo "<pre>";
-                //     print_r($users);
-                // echo "</pre>";
-                // die();
+                echo "<pre>";
+                    print_r($users);
+                echo "</pre>";
+                die();
                 return true;
             }else{
                 return false;

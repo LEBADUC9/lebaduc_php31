@@ -43,7 +43,11 @@
             while($row = $result->fetch_assoc()){
                 $data[] = $row;
             }
-            
+            // echo "<pre>";
+            //     print_r($data);
+            // echo "</pre>";
+            // var_dump($data);
+            // die();
             return $data;
         }
     }
